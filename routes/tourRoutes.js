@@ -17,6 +17,10 @@ router.param('id', (req, res, next, val) => {
 
 router.param('id',tourController.checkId);
 
+/*
+ Ham Multiple middleware ki chaining kar sakte h
+ Ex: router.route('/').get(middleware-1, middleware-2, tourController.getAllTours)
+*/
 router.route('/').get(tourController.getAllTours).post(tourController.createTour);
 router
   .route('/:id')
